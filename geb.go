@@ -1,8 +1,13 @@
 /*
 Package geb cross compiles go executables for different os and architectures.
 
-Some combinations of operating system and architecture,
-although supported by Go compiler, will be omitted, e.g. darwin on 386.
+Currently only supports the following 5 combinations of os and arch:
+
+1. Windows (386)
+2. Windows (amd64)
+3. darwin (amd64)
+4. freebsd (amd64)
+5. linux (amd64)
 
 Usage
 
@@ -18,7 +23,7 @@ import (
 )
 
 
-var osArchs = []struct {
+var osArchs = []struct{
 	goOs   string
 	goArch string
 }{
@@ -27,33 +32,10 @@ var osArchs = []struct {
 	{"windows", "amd64"},
 	// osx
 	{"darwin", "amd64"},
-	// bsd
-	{"dragonfly", "amd64"},
-	{"freebsd", "386"},
+	// freebsd
 	{"freebsd", "amd64"},
-	{"freebsd", "arm"},
-	{"netbsd", "386"},
-	{"netbsd", "amd64"},
-	{"netbsd", "arm"},
-	{"openbsd", "386"},
-	{"openbsd", "amd64"},
-	{"openbsd", "arm"},
 	// linux
-	{"linux", "386"},
 	{"linux", "amd64"},
-	{"linux", "arm"},
-	{"linux", "arm64"},
-	{"linux", "ppc64"},
-	{"linux", "ppc64le"},
-	{"linux", "mips"},
-	{"linux", "mipsle"},
-	{"linux", "mips64"},
-	{"linux", "mips64le"},
-	// solaris
-	{"solaris", "amd64"},
-	// plan9
-	{"plan9", "386"},
-	{"plan9", "amd64"},
 }
 
 func buildExecutable(name string, goOs string, goArch string) {
