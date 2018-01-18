@@ -1,13 +1,12 @@
 /*
 Package geb cross compiles go executables for different os and architectures.
 
-Currently only supports the following 5 combinations of os and arch:
+Currently only supports 4 oses on amd64:
 
-1. Windows (386)
-2. Windows (amd64)
-3. darwin (amd64)
-4. freebsd (amd64)
-5. linux (amd64)
+1. darwin
+2. freebsd
+3. linux
+4. windows
 
 Usage
 
@@ -28,7 +27,6 @@ var osArchs = []struct{
 	goArch string
 }{
 	// windows
-	{"windows", "386"},
 	{"windows", "amd64"},
 	// osx
 	{"darwin", "amd64"},
@@ -41,7 +39,7 @@ var osArchs = []struct{
 func buildExecutable(name string, goOs string, goArch string) {
 	var goOsVar string = "GOOS=" + goOs
 	var goArchVar string = "GOARCH=" + goArch
-	var output string = name + "-" + goOs + "-" + goArch
+	var output string = name + "-" + goOs
 	buildCommand := exec.Command("env", goOsVar, goArchVar, "go", "build", "-o", output)
 	err := buildCommand.Run()
 	if err != nil {

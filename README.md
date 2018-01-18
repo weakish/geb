@@ -1,12 +1,11 @@
 geb cross compiles go executables for different os and architectures.
 
-Currently only supports the following 5 combinations of os and arch:
+Currently only supports 4 oses on amd64:
 
-1. Windows (386)
-2. Windows (amd64)
-3. darwin (amd64)
-4. freebsd (amd64)
-5. linux (amd64)
+1. darwin
+2. freebsd
+3. linux
+4. windows
 
 ## Usage
 
