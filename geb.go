@@ -39,7 +39,7 @@ var osArchs = []struct{
 func buildExecutable(name string, goOs string, goArch string) {
 	var goOsVar string = "GOOS=" + goOs
 	var goArchVar string = "GOARCH=" + goArch
-	var output string = name + "-" + goOs
+	var output string = name + "_" + goOs
 	buildCommand := exec.Command("env", goOsVar, goArchVar, "go", "build", "-o", output)
 	err := buildCommand.Run()
 	if err != nil {
